@@ -1,0 +1,64 @@
+import {StyleSheet, Text, TextInput, View} from 'react-native';
+import React from 'react';
+import {COLORS} from './globa';
+
+const App = () => {
+  const FormInput = ({title, placeholder, keyboard}) => {
+    return (
+      <View style={{marginTop: 9}}>
+        <Text>{title}</Text>
+        <View style={styles.container}>
+          <TextInput placeholder={placeholder} keyboardType={keyboard} />
+        </View>
+      </View>
+    );
+  };
+
+  return (
+    <View style={styles.page}>
+      <Text
+        style={{
+          fontSize: 20,
+          color: COLORS.black,
+          fontWeight: 'bold',
+          textAlign: 'center',
+        }}>
+        Sign In
+      </Text>
+
+      <FormInput
+        title={'Email'}
+        placeholder={'enter email'}
+        keyboard={'default'}
+      />
+      <FormInput
+        title={'Password'}
+        placeholder={'enter password'}
+        keyboard={'default'}
+      />
+      <FormInput
+        title={'Phone'}
+        placeholder={'enter phone number'}
+        keyboard={'phone-pad'}
+      />
+    </View>
+  );
+};
+
+export default App;
+
+const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+    backgroundColor: COLORS.white,
+    paddingTop: 30,
+    paddingHorizontal: 10,
+  },
+  container: {
+    height: 50,
+    borderWidth: 2,
+    borderRadius: 5,
+    paddingHorizontal: 8,
+    marginTop: 9,
+  },
+});

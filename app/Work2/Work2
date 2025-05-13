@@ -1,0 +1,65 @@
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+
+const ClassWork = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.outerCircle}>
+        <View style={styles.square}>
+          <View style={styles.circleRow}>
+            <View style={styles.innerCircle} />
+            <View style={styles.innerCircle} />
+            <View style={styles.innerCircle} />
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const CIRCLE_SIZE = 300;
+const SQUARE_SIZE = 200;
+const INNER_CIRCLE_SIZE = 35;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  outerCircle: {
+    width: 300,
+    height: 300,
+    borderRadius: 150,
+    backgroundColor: 'yellow',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 5,
+    borderColor: 'black',
+  },
+  square: {
+    width: 200,
+    height: SQUARE_SIZE,
+    backgroundColor: 'green',
+    borderWidth: 5,
+    borderColor: 'black',
+    alignItems: 'center',
+    paddingTop: 8,
+  },
+  circleRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '90%',
+  },
+  innerCircle: {
+    width: 40,
+    height: 40,
+    borderRadius: 25,
+    backgroundColor: 'white',
+    borderWidth: 3,
+    borderColor: 'black',
+  },
+});
+
+export default ClassWork;

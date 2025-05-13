@@ -1,0 +1,59 @@
+import React  from "react";
+import { View, Text,  StyleSheet,  FlatList} from "react-native";
+
+const App = () => { 
+  const student = [ " Akams", " Marfrosh", " Vicks", " Ayo", " Blessing", " Hope", " Steph", "Jane", "Sayo", "Tope", " Rita", " Queen", " Enny", "Jude", " Marvell"]
+
+  return(
+    <View style = {styles.page}>
+      <Text style = {{ fontSize: 30, fontWeight: 'bold', color: 'blue'}}>I.G</Text>
+      <FlatList 
+              data={student}
+              
+             numColumns={3}
+           // horizontal = {true} 
+               columnWrapperStyle= {{justifyContent: 'space-between'}}
+              renderItem={({ item }) => {
+                return (
+                  <View style = { styles.box}>
+                    <Text style = {{ fontSize: 20, fontWeight: 'bold'}}>{item}</Text>
+
+
+                  </View>
+                )
+              }
+
+              }
+      
+      
+      />
+
+    </View>
+
+  )
+
+  
+};
+
+export default App;
+
+const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+    backgroundColor: "white",
+    paddingTop: 60,
+    paddingHorizontal: 30,
+  },
+
+  box: {
+    height: 100,
+    width: 100,
+    backgroundColor: "red",
+    //margin: 20,
+    marginBottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
+
+  },
+
+});

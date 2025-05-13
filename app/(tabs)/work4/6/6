@@ -1,0 +1,280 @@
+import React from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+
+const WalletScreen = () => {
+  return (
+    <ScrollView style={styles.container}>
+      
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.headerLeft}>
+          
+          <Image source={require('../../assets/icon/opay.png')}
+          style={{height: 45, width:45, marginLeft: 20, }} /> */
+          <Text style={styles.greeting}>Hi, FAVOUR</Text>
+        </View>
+
+        <View style={styles.headerRight}>
+          {/* Help Icon */}
+          <View style={styles.placeholderIcon} />
+
+          {/* QR Scanner Icon */}
+          <View style={styles.placeholderIcon} />
+
+          {/* Notification Icon */}
+          <View style={styles.placeholderIcon} />
+        </View>
+      </View>
+
+      {/* Balance Card */}
+      <View style={styles.balanceCard}>
+        <View style={styles.balanceRow}>
+          <Text style={styles.balanceLabel}>Available Balance</Text>
+          {/* Eye Icon */}
+          <View style={styles.eyeIcon} />
+        </View>
+        <Text style={styles.balanceAmount}>₦571.91</Text>
+        <TouchableOpacity style={styles.addMoneyButton}>
+          <Text style={styles.addMoneyText}>+ Add Money</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Transactions Section */}
+      <View style={styles.transactionSection}>
+        <View style={styles.transactionItem}>
+          {/* Arrow Icon */}
+          <View style={styles.arrowIcon} />
+          <View style={styles.transactionDetails}>
+            <Text style={styles.transactionText}>
+              Transfer to OLADAYO WASIU ILU...
+            </Text>
+            <Text style={styles.transactionTime}>Apr 18th, 19:27:10</Text>
+          </View>
+          <View style={styles.transactionRight}>
+            <Text style={styles.transactionAmount}>-₦700.00</Text>
+            <Text style={styles.transactionStatus}>Successful</Text>
+          </View>
+        </View>
+
+        <View style={styles.transactionItem}>
+          {/* Arrow Icon */}
+          <View style={styles.arrowIcon} />
+          <View style={styles.transactionDetails}>
+            <Text style={styles.transactionText}>
+              Transfer to Honour World-JEW
+            </Text>
+            <Text style={styles.transactionTime}>Apr 18th, 18:54:39</Text>
+          </View>
+          <View style={styles.transactionRight}>
+            <Text style={styles.transactionAmount}>-₦1,000.00</Text>
+            <Text style={styles.transactionStatus}>Successful</Text>
+          </View>
+        </View>
+      </View>
+
+      {/* Quick Action Buttons */}
+      <View style={styles.quickActions}>
+        <View style={styles.quickActionItem}>
+          {/* Example Icon Placeholder */}
+          <View style={styles.quickActionIcon} />
+          <Text style={styles.quickActionText}>To OPay</Text>
+        </View>
+        <View style={styles.quickActionItem}>
+          <View style={styles.quickActionIcon} />
+          <Text style={styles.quickActionText}>To Bank</Text>
+        </View>
+        <View style={styles.quickActionItem}>
+          <View style={styles.quickActionIcon} />
+          <Text style={styles.quickActionText}>Withdraw</Text>
+        </View>
+      </View>
+
+      {/* Services Grid */}
+      <View style={styles.servicesGrid}>
+        {[
+          'Airtime',
+          'Data',
+          'Betting',
+          'TV',
+          'Safebox',
+          'Loan',
+          'Invitation',
+          'More',
+        ].map((service, index) => (
+          <View key={index} style={styles.serviceItem}>
+            {/* Replace with: <Image source={require('../../assets/icons/airtime.png')} style={styles.serviceIcon} /> */}
+            <View style={styles.serviceIcon} />
+            <Text style={styles.serviceText}>{service}</Text>
+          </View>
+        ))}
+      </View>
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+    paddingTop: 70,
+    padding: 12,
+    flex: 1,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  greeting: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginLeft: 10,
+  },
+  headerRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  placeholderIcon: {
+    width: 24,
+    height: 24,
+    backgroundColor: '#ddd',
+    borderRadius: 12,
+    marginHorizontal: 4,
+  },
+  profileIcon: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+  },
+  balanceCard: {
+    backgroundColor: '#00C853',
+    borderRadius: 12,
+    padding: 20,
+    marginBottom: 20,
+  },
+  balanceRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  balanceLabel: {
+    color: '#ffffff',
+    fontSize: 14,
+  },
+  eyeIcon: {
+    width: 20,
+    height: 20,
+    backgroundColor: '#ffffff55',
+    borderRadius: 10,
+  },
+  balanceAmount: {
+    color: '#ffffff',
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  addMoneyButton: {
+    backgroundColor: '#white',
+    paddingVertical: 6,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    alignSelf: 'flex-end',
+    justifyContent: 'flex-end'
+    marginTop: 12,
+  },
+  addMoneyText: {
+    color: '#00C853',
+    fontWeight: '600',
+  },
+  transactionSection: {
+    marginBottom: 20,
+  },
+  transactionItem: {
+    flexDirection: 'row',
+    backgroundColor: '#f3f3f3',
+    padding: 12,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  arrowIcon: {
+    width: 20,
+    height: 20,
+    backgroundColor: '#00C853',
+    borderRadius: 10,
+    marginRight: 10,
+  },
+  transactionDetails: {
+    flex: 1,
+  },
+  transactionText: {
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  transactionTime: {
+    fontSize: 12,
+    color: '#777',
+  },
+  transactionRight: {
+    alignItems: 'flex-end',
+  },
+  transactionAmount: {
+    fontWeight: 'bold',
+  },
+  transactionStatus: {
+    color: 'green',
+    fontSize: 12,
+  },
+  quickActions: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 20,
+  },
+  quickActionItem: {
+    alignItems: 'center',
+  },
+  quickActionIcon: {
+    width: 40,
+    height: 40,
+    backgroundColor: '#E0F2F1',
+    borderRadius: 20,
+    marginBottom: 5,
+  },
+  quickActionText: {
+    fontSize: 12,
+  },
+  servicesGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  serviceItem: {
+    width: '22%',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  serviceIcon: {
+    width: 40,
+    height: 40,
+    backgroundColor: '#E0F2F1',
+    borderRadius: 20,
+    marginBottom: 6,
+  },
+  serviceText: {
+    fontSize: 12,
+    textAlign: 'center',
+  },
+});
+
+export default WalletScreen;

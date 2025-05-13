@@ -1,0 +1,145 @@
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Feather from 'react-native-vector-icons/Feather';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Entypo from 'react-native-vector-icons/Entypo';
+
+export default function WalletHome() {
+  return (
+    <ScrollView style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <Text style={styles.greeting}>Hi, FAVOUR</Text>
+        <View style={styles.headerIcons}>
+          <Icon name="headphones" size={25} />
+          <Icon name="qrcode-scan" size={25} />
+          <View style={styles.notification}>
+            <Feather name="bell" size={30} />
+            <View style={styles.badge}>
+              <Text style={styles.badgeText}>   99+</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+
+{/* Balance Card */}
+      
+      <View style={styles.balanceCard}>
+        <View style={styles.balanceRow}>
+          <Text style={styles.label}>
+            <Feather name="eye" size={18} />    Available Balance
+          </Text>
+          <Text style={styles.link}>Transaction History</Text>
+        </View>
+        <Text style={styles.amount}> ₦571.91</Text>
+        <TouchableOpacity style={styles.addMoney}>
+          <Text style={styles.addMoneyText}> + Add Money</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Transactions */}
+      <View style={styles.transactionCard}>
+        <View style={styles.transaction}>
+          <Feather name= "arrow-up-circle" size={22} />
+          <View style={styles.details}>
+            <Text>  Transfer to OLADAYO WASIU ILU............
+            </Text>
+            <Text style={styles.time}>   Apr 18th, 19:27:10</Text>
+          </View>
+          <View>
+            <Text style={styles.amountText}>-₦700.00</Text>
+            <Text style={styles.status}> Successful</Text>
+          </View>
+        </View>
+
+        <View style={styles.transaction}>
+          <Feather name="arrow-up-circle" size={22} />
+          <View style={styles.details}>
+            <Text>    Transfer to Honour World-JEW</Text>
+            <Text style={styles.time}>    Apr 18th, 18:54:39</Text>
+          </View>
+          <View>
+            <Text style={styles.amountText}>-₦1,000.00</Text>
+            <Text style={styles.status}>Successful</Text>
+          </View>
+        </View>
+      </View>
+
+      {/* Quick Actions */}
+      <View style={styles.quickActions}>
+        <Action icon="account-balance-wallet" label="To OPay" />
+        <Action icon="university" label="To Bank" library={FontAwesome5} />
+        <Action icon="arrow-bold-up" label="Withdraw" library={Entypo} />
+      </View>
+
+      {/* Service Grid */}
+      <View style={styles.serviceGrid}>
+        {[
+          { icon: "signal-cellular-alt", label: "Airtime" },
+          { icon: "wifi", label: "Data", lib: Feather },
+          { icon: "dice", label: "Betting", lib: FontAwesome5 },
+          { icon: "tv", label: "TV", lib: FontAwesome5 },
+          { icon: "lock-outline", label: "Safebox" },
+          { icon: "hand-holding-usd", label: "Loan", lib: FontAwesome5 },
+          { icon: "users", label: "Invitation", lib: Feather },
+          { icon: "dots-three-horizontal", label: "More", lib: Entypo },
+        ].map(({ icon, label, lib }, i) => (
+          <Action key={i} icon={icon} label={label} library={lib} />
+        ))}
+      </View>
+    </ScrollView>
+  );
+}
+
+function Action({ icon, label, library }) {
+  const IconLib = library || Icon;
+  return (
+    <View style={styles.action}>
+      <IconLib name={icon} size={30} color="green" />
+      <Text style={styles.actionLabel}>{label}</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { padding: 23, paddingTop: 60, paddingBottom: 70, backgroundColor: "white" },
+  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  greeting: { fontSize: 15, fontWeight: 'bold' },
+  headerIcons: { flexDirection: 'row', gap: 12 },
+  notification: { position: 'relative' },
+  badge: {
+    position: 'relative', top: -30,
+    backgroundColor: 'tomato', borderRadius: 8, paddingLeft: 5, paddingRight: 4
+  },
+  badgeText: { color: 'white', fontSize: 8, fontWeight: 'bold' },
+  balanceCard: {
+    backgroundColor: 'green', padding: 20, borderRadius: 20, marginVertical: 10
+  },
+  balanceRow: { flexDirection: 'row', justifyContent: 'space-between' },
+  label: { color: 'white', fontSize: 15 },
+  link: { color: 'white', fontWeight: 'bold' },
+  amount: { fontSize: 30, fontWeight: 'bold', paddingTop: 10, paddingBottom:15, color: 'white', },
+  addMoney: { backgroundColor: 'white', borderRadius: 15, padding: 8, paddingLeft: 5, alignSelf: 'baseline' },
+  addMoneyText: { color: 'green', fontSize: 10, fontWeight: 'bold' },
+  transactionCard: { backgroundColor: 'white', paddingHorizontal: 8, paddingVertical: 6, },
+  transaction: {
+    flexDirection: 'row', justifyContent: 'space-between',
+    alignItems: 'center', marginBottom: 20
+  },
+  details: { flex: 1, marginRight: 20 },
+  time: { fontSize: 10, color: 'black', fontWeight: 'bold' },
+  amountText: { fontSize: 15, fontWeight: 'bold' },
+  status: { color: 'green', fontSize: 13, fontWeight: 'bold' },
+  quickActions: {
+    flexDirection:'row', justifyContent: 'space-around', marginVertical:20, marginTop: 4
+  },
+  serviceGrid: {
+    flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between'
+  },
+  action: {
+    alignItems: 'center', width: '25%',marginVertical: 20
+  },
+  actionLabel: { fontSize: 10, marginTop: 3 }
+});

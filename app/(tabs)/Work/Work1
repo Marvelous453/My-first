@@ -1,0 +1,106 @@
+import React from 'react';
+import { View, Text, StyleSheet, Linking, ScrollView } from 'react-native';
+
+const Resume = () => {
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.name}>Bukola Marvelous s.</Text>
+
+      <Text style={styles.title}>Mobile App Developer</Text>
+
+
+
+
+      <Text style={styles.street}>Kawu villa area, Stadium Ogbomoso, Oyo State</Text>
+
+      <Text style={styles.contact}>08140451059</Text>
+      <Text style={styles.email}>marvelousbukola232@gmail.com</Text>
+
+      <Text style={styles.sectionTitle}>SKILLS</Text>
+      <Text style={styles.text}>
+       Photography, Editor,  React Native, React js
+      </Text>
+
+      <Text style={styles.sectionTitle}>Education</Text>
+      <Text style={styles.text}>
+        <Text style={styles.semibold}>LAUTECH OGBOMOSO, OYO STATE</Text>{"\n"}
+        COMPUTER SCIENCE{"\n"}
+        FEBRUARY 2023 TILL DATE{"\n"}
+
+
+
+        Exciting thing in university:- SPORT.
+        
+      </Text>
+i
+      <Text style={styles.sectionTtle}>Experience</Text>
+      <Text style={styles.text}>
+        <Text style={styles.bold}>Null</Text>{"\n"}
+        Null{"\n"}
+        • -{"\n"}
+        • -{"\n"}
+        • -{"\n"}
+        -
+      </Text>
+
+      <Text style={styles.text}>
+        <Text style={styles.bold}>Systematic_Visuals Studio Ogbomoso,Oyo State</Text>{"\n"}
+        Photographer, Editor{"\n"}
+        June 2022 till Date{"\n"}
+        • -{"\n"}
+        • -{"\n"}
+        • -{"\n"}
+        Skills: List of skills used or gained at this company
+      </Text>
+
+      <Text style={styles.sectionTitle}>Across the Internet</Text>
+      <Text style={styles.link} onPress={() => Linking.openURL('https://www.linkedin.com/in/bukola-marvelous-sunday-478476277?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app')}>
+        LinkedIn Profile
+      </Text>
+      <Text style={styles.link} onPress={() => Linking.openURL('https://www.facebook.com/share/1Em5pWua2C/')}>
+        GitHub Profile
+      </Text>
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 35, line: 200
+  },
+  name: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 4, 
+  },
+  title: {
+    fontSize: 18,
+    color: 'green',
+    marginBottom: 10,
+  },
+  contact: {
+    fontSize: 14,
+    marginBottom: 3,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    color: 'green',
+    marginTop: 12,
+    marginBottom: 6,
+  },
+  text: {
+    fontSize: 14,
+    marginBottom: 10,
+  },
+  bold: {
+    fontWeight: 'bold',
+  },
+  link: {
+    fontSize: 14,
+    color: 'blue',
+    textDecorationLine: 'underline',
+    marginBottom: 5,
+  },
+});
+
+export default Resume;

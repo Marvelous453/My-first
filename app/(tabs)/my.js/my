@@ -1,0 +1,265 @@
+import { StyleSheet, Text, View, Image, FlatList, TouchableOpacity, ScrollView } from 'react-native'
+import React from 'react'
+
+const Instagram = () => {
+
+    const storiesData = [
+        {
+            id: 1,
+            name: "Your story",
+            avatar: "https://img.freepik.com/free-photo/portrait-happy-young-african-man_171337-8809.jpg?t=st=1746009521~exp=1746013121~hmac=6028cb690b9aadecc9e77444a15de9607265c44ca4172f9728a1c177e69bc4a6&w=1380",
+        }, {
+            id: 2,
+            name: "Muizah",
+            avatar: "https://img.freepik.com/free-photo/lady-looking-excited-happy-using-her-phone-carrying-handbag_181624-43869.jpg?t=st=1746009556~exp=1746013156~hmac=498b27b6515323eef05e5c4fe8f0835bc5fc9d6b52b125a9bc544c197726d935&w=740",
+        }, {
+            id: +3,
+            name: "creators",
+            avatar: "https://img.freepik.com/free-photo/portrait-young-indian-top-manager-t-shirt-tie-crossed-arms-smiling-white-isolated-wall_496169-1513.jpg?t=st=1746019672~exp=1746023272~hmac=a8ebd6b12432abb7ce3ff22200176f7ee2a2dff459d7af45c11cfa33196e3a5a&w=996",
+        }, {
+            id: 4,
+            name: "steph",
+            avatar: "https://img.freepik.com/free-photo/full-shot-man-playing-basketball_23-2150910650.jpg?t=st=1746019791~exp=1746023391~hmac=750d9c2eaaaa975d81bdd29ec1e1d2b48f5f3627b94f8096570a4cc9f105aafd&w=996",
+        }, {
+            id: 5,
+            name: "jane",
+            avatar: "https://img.freepik.com/free-photo/happiness-wellbeing-confidence-concept-cheerful-attractive-african-american-woman-curly-haircut-cross-arms-chest-self-assured-powerful-pose-smiling-determined-wear-yellow-sweater_176420-35063.jpg?t=st=1746019844~exp=1746023444~hmac=cbebd4c82845bd0ceb6fd8a59bbfecd138c063fa2f31b3ab13bc62ed6cb8e4ff&w=996",
+        }, {
+            id: 6,
+            name: "Brymo",
+            avatar: "https://img.freepik.com/free-photo/medium-shot-smiley-man-ready-travel_23-2149380154.jpg?t=st=1746019877~exp=1746023477~hmac=ee3e5b5575621b1188afbbf324ba88bb20eb749cdf8de697a4fe7432e48a4a52&w=740",
+        }, {
+            id: 7,
+            name: "James",
+            avatar: "https://img.freepik.com/free-photo/man-pointing-his-side_1149-1365.jpg?t=st=1746019902~exp=1746023502~hmac=6cb1fd50d0789eb78687ec769e6fdeca850eb5cf6cfb75f5e00c44be4e5fa772&w=740",
+        }, {
+            id: 8,
+            name: "Viks",
+            avatar: "https://img.freepik.com/free-photo/handsome-man-using-modern-smartphone-outdoors_23-2149073850.jpg?t=st=1746019978~exp=1746023578~hmac=751ff828ce146079135c605a3e23cdd3d9fd08d80f7acb51b64c72442ae6c9eb&w=740",
+        },
+
+    ];
+        const suggestionData = [
+            {
+                id: 1,
+                name: "Selena Gomez ✔",
+                avatar: "https://img.freepik.com/free-photo/stylish-black-girl_1157-15544.jpg?t=st=1746020347~exp=1746023947~hmac=da4de30cd493806f75d94caa52d02c7fd4fb37e2813be87451210b4b03833703&w=996",
+            }, {
+                id: 2,
+                name: "Bruna Mars ✔",
+                avatar: "https://img.freepik.com/free-photo/lady-looking-excited-happy-using-her-phone-carrying-handbag_181624-43869.jpg?t=st=1746009556~exp=1746013156~hmac=498b27b6515323eef05e5c4fe8f0835bc5fc9d6b52b125a9bc544c197726d935&w=740",
+            }, {
+                id: 3,
+                name: "Marvell ✔",
+                avatar: "https://img.freepik.com/free-photo/man-hoodie-buttoning-denim-jacket-posing-orange-background-charming-guy-red-sweatshirt-widely-smiling-isolated-backdrop_197531-28552.jpg?t=st=1746020590~exp=1746024190~hmac=83527f6b58054e0d18ebd63a93ae081ccdbf187732855f5abf5bdbe2a5bf5d86&w=996",
+            }, {
+                id: 4,
+                name: "steph",
+                avatar: "https://img.freepik.com/free-photo/full-shot-man-playing-basketball_23-2150910650.jpg?t=st=1746019791~exp=1746023391~hmac=750d9c2eaaaa975d81bdd29ec1e1d2b48f5f3627b94f8096570a4cc9f105aafd&w=996",
+            }, {
+                id: 5,
+                name: "jane",
+                avatar: "https://img.freepik.com/free-photo/happiness-wellbeing-confidence-concept-cheerful-attractive-african-american-woman-curly-haircut-cross-arms-chest-self-assured-powerful-pose-smiling-determined-wear-yellow-sweater_176420-35063.jpg?t=st=1746019844~exp=1746023444~hmac=cbebd4c82845bd0ceb6fd8a59bbfecd138c063fa2f31b3ab13bc62ed6cb8e4ff&w=996",
+            }, {
+                id: 6,
+                name: "Brymo",
+                avatar: "https://img.freepik.com/free-photo/medium-shot-smiley-man-ready-travel_23-2149380154.jpg?t=st=1746019877~exp=1746023477~hmac=ee3e5b5575621b1188afbbf324ba88bb20eb749cdf8de697a4fe7432e48a4a52&w=740",
+            }, {
+                id: 7,
+                name: "James",
+                avatar: "https://img.freepik.com/free-photo/man-pointing-his-side_1149-1365.jpg?t=st=1746019902~exp=1746023502~hmac=6cb1fd50d0789eb78687ec769e6fdeca850eb5cf6cfb75f5e00c44be4e5fa772&w=740",
+            }, {
+                id: 8,
+                name: "Viks",
+                avatar: "https://img.freepik.com/free-photo/handsome-man-using-modern-smartphone-outdoors_23-2149073850.jpg?t=st=1746019978~exp=1746023578~hmac=751ff828ce146079135c605a3e23cdd3d9fd08d80f7acb51b64c72442ae6c9eb&w=740",
+            },
+    
+        ];
+
+
+        const post = [
+            {
+                id: 1,
+                
+                avatar: "https://img.freepik.com/free-photo/green-tea-bud-leaves-green-tea-plantations-morning_335224-955.jpg?t=st=1746021190~exp=1746024790~hmac=6b1c23c6a6c00f27302aa5d13574badba3c44cb21786f7ebbd23edf483887244&w=996",
+            },
+
+            {
+                id: 2,
+              
+                avatar: "https://img.freepik.com/free-vector/bright-stadium-arena-lights-effect_52683-30567.jpg?t=st=1746021902~exp=1746025502~hmac=cb92dbab0c5816dcb36fb153e66e48ecc93ea35b83ea1cd2f03b1042553cf1a9&w=996",
+            }, 
+    
+        ];
+
+    
+    
+
+    // const suggestionData = [
+    //     {id}
+    // ]
+
+
+    return (
+        <View style={styles.page}>
+
+            <View style={{ flexDirection: "row", alignItems: 'center', justifyContent: 'space-between', marginRight: 15, marginBottom: 18 }}>
+                <Text style={{ fontSize: 25, color: 'black', fontWeight: 'bold' }}>Instagram</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Image
+                        style={{ height: 25, width: 25, }}
+                        source={{ uri: "https://img.icons8.com/?size=100&id=87&format=png&color=000000" }} />
+                    <View>
+                        <Image
+                            style={{ height: 25, width: 25, marginLeft: 20 }}
+                            source={{ uri: "https://img.icons8.com/?size=100&id=143&format=png&color=000000" }}
+                        />
+                        <View style={{
+                            height: 20, width: 20, borderRadius: 20, backgroundColor: 'red',
+                            justifyContent: 'center', alignItems: 'center', position: 'absolute', right: -10, top: -5
+                        }}>
+                            <Text style={{ fontSize: 10, color: 'white', fontWeight: 'bold' }}>1</Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+
+            {/* // stories */}
+            <ScrollView>
+                <FlatList
+                    data={storiesData}
+                   horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    renderItem={({ item }) => {
+                        return (
+                            <View style={{ marginRight: 10, }}>
+                                <View style={styles.circle}>
+                                    <Image source={{ uri: item.avatar }}
+                                        style={{ height: 75, width: 75, borderRadius: 200, }} />
+                                </View>
+                                <Text style={{ fontSize: 15, color: 'black', textAlign: 'center' }}>{item.name}</Text>
+                            </View>
+                        )
+                    }}
+                />
+
+                {/* suggestions  */}
+                <View style={{ marginTop: 20, }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20, marginRight: 15 }}>
+                        <Text style={{ fontSize: 15, color: "black", fontWeight: 'bold' }}>Suggested for you</Text>
+                        <Text style={{ fontSize: 15, color: "blue", fontWeight: 'bold' }}>See all</Text>
+                    </View>
+                    <FlatList
+                        data={suggestionData}
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}
+                        renderItem={({ item }) => {
+                            return (
+                                <View style={styles.box}>
+                                    <TouchableOpacity>
+                                        <Image
+                                            source={{ uri: "https://img.icons8.com/?size=100&id=71200&format=png&color=000000" }}
+                                            style={{ height: 17, width: 17, alignSelf: 'flex-end', opacity: 0.5, }}
+                                        />
+                                    </TouchableOpacity>
+
+                                    <Image
+                                        source={{ uri: item.avatar }}
+                                        style={{ height: 130, width: 130, borderRadius: 100, alignSelf: 'center', marginTop: 10 }}
+                                    />
+                                    <Text style={{ fontSize: 14, color: 'black', fontWeight: 'bold', textAlign: 'center', marginTop: 10 }}>{item.name}</Text>
+                                    <TouchableOpacity style={styles.followBtn}>
+                                        <Text style={{ fontSize: 13, color: 'white', fontWeight: '600' }}>Follow</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            )
+                        }}
+                    />
+                </View>
+
+                {/* POSTS */}
+                <View style={{ marginTop: 10, paddingTop: 5,  }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 3, marginRight: 15 , justifyContent: 'space-between'}}>
+
+                        <View style = {{ padding: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10}}>
+                      <Image source={{uri: "https://img.freepik.com/free-vector/golden-elegant-logo-flat-style_52683-14908.jpg?t=st=1746024330~exp=1746027930~hmac=afabcb94e7a54e99d7993d60b3ce07290cb3f4b5d09e42b59abc6d276c8e2b8f&w=740"}}
+                         style={{height: 60, width: 60, borderRadius: 50, borderWidth: 1, borderColor: 'red', padding: 20,}}
+                        /> 
+                        
+
+
+                        
+                        
+                        <Text style={{ fontSize: 20, color: "black", fontWeight: 'bold',  alignSelf: 'center', }}>Earth ✔ {'\n' }Beja California Sur, MX </Text>
+                                   
+                        </View>
+ 
+                        <Image source={{uri: "https://img.icons8.com/?size=100&id=HKs7ckCpqhGO&format=png&color=000000"}} 
+                        style={{height: 20, width: 20, marginRight: 5}} /> 
+                       
+                    </View>
+
+                    <FlatList
+                        data={post}
+                        horizontal={false}
+                        showsHorizontalScrollIndicator={false}
+                        renderItem={({ item }) => {
+                            return (
+                                <View style={styles.bigBox}>
+                                 <Image
+                                        source={{ uri: item.avatar }}
+                                        style={{ height: 380, width: 400, alignSelf: 'center', marginTop: 10, }}
+                                    />
+
+
+                                </View>
+                            )
+                        }}
+                    />
+                </View>
+            </ScrollView>
+
+        </View>
+    )
+}
+
+export default Instagram;
+
+const styles = StyleSheet.create({
+    page: {
+        paddingTop: 55,
+        paddingLeft: 15,
+    },
+    circle: {
+        height: 90,
+        width: 90,
+        borderWidth: 3,
+        borderRadius: 200,
+        borderColor: "pink",
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    box: {
+        height: 260,
+        width: 220,
+        borderWidth: 1,
+        marginRight: 20,
+        borderRadius: 5,
+        padding: 7,
+    },
+    followBtn: {
+        height: 40,
+        width: 200,
+        backgroundColor: 'blue',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+        marginTop: 5,
+        borderRadius: 5,
+    },
+    bigBox: {
+        height: 400,
+        borderWidth: 2,
+        marginTop: 10
+    },
+})

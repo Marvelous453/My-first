@@ -1,0 +1,148 @@
+import { StyleSheet, Text, View, FlatList, Image } from 'react-native'
+import React from 'react'
+
+const _layout = () => {
+
+    const chatData = [
+        {
+            id: 1,
+            name: "Weekend",
+            message: "Sofia: GIF 👀",
+            avatar: "https://img.freepik.com/free-psd/3d-rendering-emoji-icon_23-2149878818.jpg?t=st=1745835263~exp=1745838863~hmac=dfa8df6e41b51a831da7f20681cec73f8073207e6aaf98beccbe9a93d6acfed2&w=826",
+            date: "Yesterday",
+        }, {
+            id: 2,
+            name: "Andrius Schneider",
+            message: "How far?",
+            avatar: "https://img.freepik.com/free-vector/floral-card_53876-91231.jpg?t=st=1745835503~exp=1745839103~hmac=f2053311e9032548f4df4d04b7a83e7f4a1e62fa74a90a6df66cee2e35770d98&w=900",
+            date: "9:45",
+        }, {
+            id: 3,
+            name: "Anna Payet",
+            message: "How far?",
+            avatar:"https://media.istockphoto.com/id/1306611077/photo/silhouette-of-asian-high-school-girl.jpg?s=1024x1024&w=is&k=20&c=SPbk8m5bZMrmIe0ITLNyM5VzpzsY4eMrGxGxb52qAyo=",
+            date: "10:20",
+        }, {
+            id: 4,
+            name: " Family ",
+            message: " Hello?",
+            avatar:"https://media.istockphoto.com/id/1447123729/photo/family-mother-and-father-with-child-for-holiday-vacation-and-being-happy-together-outdoor.jpg?s=1024x1024&w=is&k=20&c=XM48RQxU7Y7SbBKJs3TwIhqAlCaeX3BeQy58vlvYG44=",
+            date: "12:07",
+        }, {
+            id: 5,
+            name: "Maria",
+            message: " ✔✔it was great to see you! Let's catch..",
+            avatar:"https://media.istockphoto.com/id/1289220545/photo/beautiful-woman-smiling-with-crossed-arms.jpg?s=1024x1024&w=is&k=20&c=wobHCIC8ARiLxB4rmznE6JixLVRNtHHOzP366loetck=",
+            date: "12:15",
+        }, {
+            id: 6,
+            name: "Lunch club",
+            message: "Dominic Schwarz:",
+            avatar: "https://media.istockphoto.com/id/1344954298/photo/family-with-dog-in-the-car.jpg?s=1024x1024&w=is&k=20&c=gVLjmBoCEzuIUw-24WwkRBKbSFZQfiQ8R5ZRtmQqE3s=",
+            date: "12:55",
+        }, {
+            id: 7,
+            name: "Jane Will",
+            message: "How are you doing?",
+            avatar:"https://media.istockphoto.com/id/1416048929/photo/woman-working-on-laptop-online-checking-emails-and-planning-on-the-internet-while-sitting-in.jpg?s=1024x1024&w=is&k=20&c=rsMEfrDiYh3Y2CbJ8OQYRfJZ2kOGBneREKETBn0vyjU=",
+            date: "Yesterday",
+        }, {
+            id: 8,
+            name: "Paulina chris",
+            message: "Hi 👋👋",
+            avatar:"https://media.istockphoto.com/id/1399395748/photo/cheerful-business-woman-with-glasses-posing-with-her-hands-under-her-face-showing-her-smile.jpg?s=1024x1024&w=is&k=20&c=i_88ZBhP4k0i2OnG1FiiOpVF9XkDLJ3jIulBn7m2H3k=",
+            date: "Yesterday",
+        }, {
+            id: 9,
+            name: "Stephan",
+            message: "Yoo...😎😜😜",
+            avatar: "https://media.istockphoto.com/id/1744747091/photo/african-man-pensive-student-planning-something-looking-for-idea-isolated-on-background.jpg?s=1024x1024&w=is&k=20&c=FTbgDSX7NH4jN9ppbEaq5Yu8enhVIhTgd-JuKg0BNbQ=",
+            date: "Yesterday",
+        },{
+            id:10,
+            name: "Marvell",
+            message: "How una dey?",
+            avatar: "https://scontent.flos5-1.fna.fbcdn.net/v/t39.30808-6/491136389_668572316106345_7064797612205755550_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEFxisek4TQLGjFvhcQJwjjB2DyBOYGF8UHYPIE5gYXxUBmYrdtxh8tDVt9qg2IG8QW9ouOF61H8t_hk3AzTm9t&_nc_ohc=FtGgSsrRhFUQ7kNvwGhtbr_&_nc_oc=AdkfXYjO7-w6JAVqm7ScxQVmR5rx7NgNeLLIk_1Bbj5gYgNoBdAmDzgw_fJJrtgqahg&_nc_zt=23&_nc_ht=scontent.flos5-1.fna&_nc_gid=tIFhfiSmAyAINWtDT3OyYQ&oh=00_AfEZeto3btui-141uwUt0ZispP_666R6S31g0uhZ_eFk8g&oe=68154DE7",
+            date: "Yesterday"
+
+        },
+
+    ];
+
+
+    return (
+        <View style={styles.page}>
+            
+            <View style={{ flexDirection:'row' , padding: 20, justifyContent: 'space-between'}}>
+            <Text style={{ fontSize: 30, color: "black", fontWeight: 'bold', fontStyle: 'italic'}}>Instagram</Text>
+           <Image source={require('../../assets/icon4/love.png')}  style={{ height: 30, width: 30, justifyContent: 'flex-end'}}/>
+           <Image source={require('../../assets/icon4/message.png')}  style={{ height: 30, width: 30, justifyContent:'flex-end'}}/>
+   </View>
+
+   <View style={{ flexDirection:'row', gap: 50, paddingTop: 20, }}>
+   <Text style={{ fontSize: 20, color: "black",  fontWeight: '400', backgroundColor: '#90EE90', borderRadius: 5,}}>All</Text>
+   <Text style={{ fontSize: 20, color: "black",  fontWeight: 'bold',  backgroundColor: '#f1f1f1', borderRadius: 10}}>Unread</Text>
+   <Text style={{ fontSize: 20, color: "black", fontWeight: ' bold',  backgroundColor: '#f1f1f1', borderRadius: 10}}>Groups</Text>
+   </View>
+
+
+   <View style={{ marginTop: 20 }}>
+
+<FlatList
+    data={chatData}
+    renderItem={({ item }) => {
+        return (
+            <View style={styles.container}>
+                <Image
+                    source={{ uri: item.avatar }}
+                    style={{ height: 40, width: 40, borderRadius: 60, }}
+                />
+                <View style={{ marginLeft: 15, flex: 1 }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 16, color: 'black', fontWeight: '500', flex: 1 }} >{item.name}</Text>
+                        <Text>{item.date}</Text>
+                    </View>
+                    <Text style={{ fontSize: 12, color: 'black', }}>{item.message}</Text>
+                </View>
+
+            </View>
+        )
+    }}
+/>
+
+</View>
+
+   
+
+
+           
+            
+          
+            
+            
+            
+        
+
+            
+         
+
+
+        </View>
+    )
+}
+
+export default _layout;
+const styles = StyleSheet.create({
+    page: {
+        flex: 1,
+        backgroundColor: "#ffffff",
+        paddingHorizontal: 15,
+        paddingTop: 55,
+    },
+    container: {
+        // height: 70,
+        marginBottom: 20,
+        flexDirection: "row",
+        alignItems: 'center',
+    },
+})

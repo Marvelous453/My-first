@@ -1,0 +1,103 @@
+import React from 'react';
+import {View,Text,FlatList,TouchableOpacity, StyleSheet, Image} from 'react-native';
+
+
+const menuItems = [
+  { id: '1', title: 'Personal Data', avatar: 'https://img.icons8.com/?size=100&id=2yC9SZKcXDdX&format=png&color=000000', Option: 'https://img.icons8.com/?size=100&id=k7Q43nZWu9ZF&format=png&color=000000' },
+  { id: '2', title: 'Settings', avatar: 'https://img.icons8.com/?size=100&id=Zydyx4gBcOrY&format=png&color=000000', Option: 'https://img.icons8.com/?size=100&id=k7Q43nZWu9ZF&format=png&color=000000' },
+  { id: '3', title: 'E-Statement' , avatar: 'https://img.icons8.com/?size=100&id=OGuKy8sTYJ0z&format=png&color=000000', Option: 'https://img.icons8.com/?size=100&id=k7Q43nZWu9ZF&format=png&color=000000'},
+  { id: '4', title: 'Referral Code', avatar: 'https://img.icons8.com/?size=100&id=oN7kFk3eWop4&format=png&color=000000',Option: 'https://img.icons8.com/?size=100&id=k7Q43nZWu9ZF&format=png&color=000000', hasDividerBelow: true },
+  { id: '5', title: 'FAQ', avatar: 'https://img.icons8.com/?size=100&id=ELbk2u2iPuzM&format=png&color=000000', Option: 'https://img.icons8.com/?size=100&id=k7Q43nZWu9ZF&format=png&color=000000' },
+  { id: '6', title: 'Our Handbook', avatar: 'https://img.icons8.com/?size=100&id=5Yv6Z9IMeZwU&format=png&color=000000', Option: 'https://img.icons8.com/?size=100&id=k7Q43nZWu9ZF&format=png&color=000000' },
+  { id: '7', title: 'Community', avatar: 'https://img.icons8.com/?size=100&id=4r3xdsxcmOTJ&format=png&color=000000', Option: 'https://img.icons8.com/?size=100&id=k7Q43nZWu9ZF&format=png&color=000000' },
+];
+
+const App = () => {
+  const renderItem = ({ item }) => (
+    <View>
+      <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 10}}>
+      <View style={{ flexDirection: 'row', gap: 20, marginLeft: 20}}>
+        <Image source={{ uri: item.avatar}}
+        style={{ height: 30, width: 30, marginTop: 20}}
+        />
+        <Text style={{ marginRight: 70, marginTop: 20}}>{item.title}</Text>
+        </View>
+
+        <Image source={{ uri: item.Option}} 
+        style={{ height: 20, width: 20, marginRight: 10, marginTop: 20}}
+        />
+
+      </TouchableOpacity>
+      {item.hasDividerBelow && <View style={{height: 1, backgroundColor: 'gray', marginVertical: 30,}} />}
+    </View>
+  );
+
+  return (
+    <View style={styles.container}>
+      {/* Profile Section */}
+        <View style={{ marginRight: 12 }} />
+        <View style={{ flexDirection: 'row', gap: 10}}>
+          <Image source={require('../../assets/images/profile.jpg')}
+          style={{ height: 60, width: 60, borderRadius: 20}}
+          />
+          <View>
+          <Text style={{ fontSize: 30, fontWeight: 'bold', color: 'black'}}> William John Malik</Text>
+          <Text style={{ fontSize: 15, fontWeight: '500',  marginLeft: 10}}> Aggressive Investor</Text>
+          </View>
+        </View>
+
+      {/* Top Divider */}
+      <View style={{ height: 1,backgroundColor: 'gray', marginVertical: 8,}} />
+
+      {/* Menu Items */}
+      <FlatList
+        data={menuItems}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
+        ItemSeparatorComponent={() => <View style={styles.itemSpacing} />}
+        contentContainerStyle={{ paddingBottom: 20 }}
+        showsVerticalScrollIndicator={false}
+      />
+
+      {/* Help Text */}
+      <View style={{ backgroundColor: '#d4d4d4',padding: 14, borderRadius: 12, flexDirection: 'row',  alignItems: 'center', marginTop: 10, gap: 20, justifyContent: 'center'}}>
+        <Image source={{ uri: 'https://img.icons8.com/?size=100&id=46LgER0wUAG0&format=png&color=000000'}}
+        style={{ height: 40, width: 40}}/>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'blue'}}>Feel Free to Ask, We Ready to Help</Text>
+      </View>
+
+      {/* Bottom Navigation Icons */}
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 15,borderRadius: 5, borderWidth: 2,  borderColor: 'gray', marginTop: 10,}}>
+        <Image
+          source={{ uri: "https://img.icons8.com/?size=100&id=1iF9PyJ2Thzo&format=png&color=000000"}}
+         style={{ height: 25, width: 25}}
+        />
+        <Image
+          source={{ uri:"https://img.icons8.com/?size=100&id=Ks30i0GeKo9G&format=png&color=000000"}}
+         style={{ height: 25, width: 25}}
+        />
+        <Image
+          source={{ uri: "https://img.icons8.com/?size=100&id=hf35HOxizD5q&format=png&color=000000"}}
+         style={{ height: 25, width: 25}}
+        />
+        <Image
+          source={{ uri: "https://img.icons8.com/?size=100&id=2yC9SZKcXDdX&format=png&color=000000"}}
+          style={{ height: 25, width: 25}}
+        />
+        
+      
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { 
+    flex: 1,
+    padding: 16, 
+    backgroundColor: 'white', 
+    paddingTop: 40 },
+  
+});
+
+export default App;
